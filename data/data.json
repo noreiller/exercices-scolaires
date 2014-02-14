@@ -1,0 +1,26 @@
+{
+	"app": {
+		"title": "Exercices scolaires"
+		, "description": "Outils et générateurs d'exercices utilisables sur TNI/TBI (tableaux blancs/numériques interactifs)"
+		, "works": [{
+			"name": "mathematiques"
+			, "title": "Mathématiques"
+			, "works": [{
+				"name": "mathematiques-multiplication-division"
+				, "title": "Multiplications & divisions"
+				, "module": true
+			}]
+		}, {
+			"name": "francais"
+			, "title": "Français"
+			, "works": [{
+				"name": "francais-conjugaison"
+				, "title": "Conjugaison"
+			}]
+		}]
+		, "index": {
+			"name": "index"
+			, "title": "Accueil"
+		}
+	}
+}

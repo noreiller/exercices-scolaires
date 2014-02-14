@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="fr">
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="Outils et générateurs d'exercices utilisables sur TNI/TBI (tableaux blancs/numériques interactifs)" />
+		<title>Multiplications & divisions / Mathématiques / Exercices scolaires</title>
+		<link rel="stylesheet" href="css/styles.css" />
+	</head>
+	<body data-app="mathematiques-multiplication-division">
+		<div class="container sw-wrapper">
+			<div class="row">
+				<div class="col-md-12">
+					<h1 class="sw-title">Exercices scolaires</h1>
+					<ol class="breadcrumb">
+						
+							<li><a href="index.html">Accueil</a></li>
+						
+						
+							<li><a href="mathematiques.html">Mathématiques</a></li>
+						
+						<li class="active">Multiplications & divisions</li>
+					</ol>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-9" role="main">
+					<div class="sw-pane sw-main">
+
+
+<form role="form" id="mathematiques-multiplication-division">
+	<fieldset class="form-group parameters">
+		<legend>Paramètres</legend>
+		<div class="form-group">
+			<label for="operation">Opération</label>
+			<select name="operation" id="operation" class="form-control">
+				<option value="multiplication" selected="selected">Multiplication</option>
+				<option value="division">Division</option>
+			</select>
+		</div>
+		<div class="form-group">
+			<label for="table">Table</label>
+			<select name="table" id="table" class="form-control">
+				<option value="0">Toutes</option>
+				<option value="1">1</option>
+				<option value="2">2</option>
+				<option value="3">3</option>
+				<option value="4">4</option>
+				<option value="5">5</option>
+				<option value="6">6</option>
+				<option value="7">7</option>
+				<option value="8">8</option>
+				<option value="9">9</option>
+			</select>
+		</div>
+		<div class="form-group">
+			<label for="quantity">Quantités</label>
+			<select name="quantity" id="quantity" class="form-control">
+				<option value="5" selected="selected">5</option>
+				<option value="9">9</option>
+				<option value="10">10</option>
+				<option value="15">15</option>
+				<option value="20">20</option>
+				<option value="25">25</option>
+			</select>
+		</div>
+		<div class="form-group">
+			<label for="delay">Délai (secondes)</label>
+			<select name="delay" id="delay" class="form-control">
+				<option value="5000">5</option>
+				<option value="10000">10</option>
+				<option value="15000" selected="selected">15</option>
+				<option value="20000">20</option>
+				<option value="25000">25</option>
+			</select>
+		</div>
+		<p><strong>Options supplémentaires</strong></p>
+		<div class="checkbox">
+			<label>
+				<input type="checkbox" name="allowSame" id="allowSame" value="true" checked="checked"/>
+				<span>Autoriser les même chiffres/nombres dans une opération ? <em>eg. 5x5</em></span>
+			</label>
+		</div>
+		<div class="checkbox">
+			<label>
+				<input type="checkbox" name="allowReversed" id="allowReversed" value="true" />
+				<span>Autoriser les opérations renversées ? <em>eg. 5x1 et 1x5</em></span>
+			</label>
+		</div>
+		<div class="checkbox">
+			<label>
+				<input type="checkbox" name="allowDuplicates" id="allowDuplicates" value="true" />
+				<span>Autoriser les doublons ?</span>
+			</label>
+		</div>
+	</fieldset>
+	<fieldset class="form-group buttons">
+		<button type="submit" class="btn btn-success">Valider</button>
+		<button type="button" class="btn btn-primary restart">Recommencer</button>
+	</fieldset>
+</form>
+
+					</div>
+				</div>
+				<div class="col-md-3">
+					<div class="sw-pane sw-sidebar" role="complementary">
+						<h2 class="sw-title">Tous les exercices</h2>
+						<ul class="nav">
+	
+		<li>
+			<a href="mathematiques.html">Mathématiques</a>
+			
+		</li>
+	
+		<li>
+			<a href="francais.html">Français</a>
+			
+		</li>
+	
+</ul>
+
+					</div>
+				</div>
+			</div>
+		</div>
+		<script data-main="js/app.js" src="js/require.js"></script>
+	</body>
+</html>
+
