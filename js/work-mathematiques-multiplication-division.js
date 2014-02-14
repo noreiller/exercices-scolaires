@@ -70,41 +70,22 @@ define([
 	}
 
 	function updateParameters () {
-		for (var i in defaultParameters) {
-			var
-				inputElements = document.querySelectorAll('[name=' + i + ']')
-				, inputElement = inputElements[0]
-			;
+		// reset the parameters
+		parameters = {};
 
-			if (
-				inputElement.tagName === 'INPUT'
-				&& ['radio', 'checkbox'].indexOf(inputElement.type) !== -1
-			) {
-				if (inputElements.length < 2 && inputElement.checked) {
-					parameters[i] = Tools.format(inputElement.value || defaultParameters[i].value, defaultParameters[i].type);
-				}
-				else if (inputElements.length < 2 && !inputElement.checked) {
-					if (defaultParameters[i].type == 'boolean') {
-						parameters[i] = !Tools.format(inputElement.value || defaultParameters[i].value, defaultParameters[i].type);
-					}
-					else {
-						delete parameters[i];
-					}
-				}
-				else {
-					parameters[i] = defaultParameters[i].value;
+		// update the parameters with form values
+		$.each($form.serializeArray(), function (ind, field) {
+			if (defaultParameters[field.name]) {
+				parameters[field.name] = Tools.format(field.value, defaultParameters[field.name].type);
+			}
+		});
 
-					for (var j = 0; j < inputElements.length; j++) {
-						if (inputElements[j].checked) {
-							parameters[i] = Tools.format(inputElements[j].value || defaultParameters[i].value, defaultParameters[i].type);
-						}
-					}
-				}
+		// update the missing parameters with default ones
+		$.each(defaultParameters, function (ind, param) {
+			if (!parameters[ind]) {
+				parameters[ind] = defaultParameters[ind].value;
 			}
-			else {
-				parameters[i] = Tools.format(inputElement.value || defaultParameters[i].value, defaultParameters[i].type);
-			}
-		}
+		});
 
 		// if the table param is set and duplicates are not allowed, ensure
 		// that the max is at least the quantity
@@ -119,7 +100,6 @@ define([
 				parameters.max = parameters.quantity + 1;
 			}
 		}
-		window.console.log(parameters);
 	}
 
 	function updateSlideshow () {
@@ -127,33 +107,33 @@ define([
 		Tools.Slideshow.reset();
 
 		// add each operation
-		for (var i in operations) {
+		$.each(operations, function (ind, operation) {
 			var
 				$slide = $('<div></div>')
 				, text = ''
 			;
 
-			if (operations[i].details.operation == '/') {
-				text += operations[i].details.result;
+			if (operation.details.operation == '/') {
+				text += operation.details.result;
 			}
 			else {
-				text += operations[i].details.left;
+				text += operation.details.left;
 			}
 
-			text += operations[i].details.operation;
+			text += operation.details.operation;
 
-			text += operations[i].details.right;
+			text += operation.details.right;
 
 			$slide.html(text);
 			$slide.addClass('item');
 
 			// add the active className to the first slide
-			if (Number(i) === 0) {
+			if (Number(ind) === 0) {
 				$slide.addClass('active');
 			}
 
 			Tools.Slideshow.addSlide($slide);
-		}
+		});
 
 		Tools.Slideshow.show(parameters.delay);
 	}
