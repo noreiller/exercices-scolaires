@@ -7,7 +7,7 @@ module.exports = function(grunt) {
 	grunt.initConfig({
 		pkg: grunt.file.readJSON('package.json')
 
-		'gh-pages': {
+		, 'gh-pages': {
 			options: {
 				base: 'dist'
 			}
