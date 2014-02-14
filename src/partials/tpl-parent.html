@@ -1,0 +1,13 @@
+@@include.header
+
+<ul class="nav">
+	<% _.each(app.works, function (item) { %>
+		<% if (item.works && item.name == work.name) { %>
+			<% _.each(item.works, function (subitem) { %>
+				<li><a href="<%= subitem.name %>.html"><%= subitem.title %></a></li>
+			<% }) %>
+		<% } %>
+	<% }) %>
+</ul>
+
+@@include.footer

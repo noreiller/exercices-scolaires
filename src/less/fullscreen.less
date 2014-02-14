@@ -1,0 +1,46 @@
+/* FULLSCREEN MODAL */
+.modal-fullscreen {
+	.modal-dialog {
+		margin: 0;
+		width: 100%;
+	}
+	.modal-content {
+		border: none;
+		-moz-border-radius: 0;
+		border-radius: 0;
+		-webkit-box-shadow: inherit;
+		-moz-box-shadow: inherit;
+		-o-box-shadow: inherit;
+		box-shadow: inherit;
+	}
+	.modal-dialog,
+	.modal-content,
+	.modal-body {
+		bottom: 0;
+		left: 0;
+		position: absolute;
+		right: 0;
+		top: 0;
+	}
+	.modal-header {
+		position: absolute;
+		left: 0;
+		right: 0;
+		z-index: 1;
+	}
+	.modal-body {
+		padding-top: 60px;
+	}
+}
+
+/* CAROUSEL INTO A FULLSCREEN MODAL */
+.modal-fullscreen .carousel .item {
+	font-size: 100px;
+	line-height: 3em;
+	text-align: center;
+}
+@media (min-width: 768px) {
+	.modal-fullscreen .carousel .item {
+		font-size: 200px;
+	}
+}
