@@ -196,6 +196,8 @@ module.exports = function(grunt) {
 	grunt.registerTask('copy:assets', ['copy:data', 'copy:tpl', 'copy:js']);
 	grunt.registerTask('build', ['jshint', 'clean', 'less', 'copy:assets', 'requirejs', 'html']);
 
+	grunt.registerTask('dev', ['jshint', 'clean', 'less', 'copy:assets', 'html']);
+
 	grunt.registerTask('default', ['build']);
 
 	grunt.registerTask('deploy', ['build', 'gh-pages']);

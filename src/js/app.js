@@ -3,8 +3,10 @@ require.config({
 		// DEPENDENCIES
 		'jquery': '../../bower_components/jquery/jquery.min'
 		, 'bootstrap': '../../bower_components/bootstrap/dist/js/bootstrap.min'
+		, 'json3': '../../bower_components/json3/lib/json3.min'
 		, 'text': '../../bower_components/requirejs-text/text'
 		// LIBS
+		, 'polyfills': './polyfills'
 		, 'tools': './tools'
 		, 'slideshow': './slideshow'
 		, 'maths': './maths'
@@ -22,13 +24,15 @@ define([
 	, 'tools'
 	, 'text!../data/data.json'
 	// Load dependencies
+	, 'polyfills'
 	, 'bootstrap'
-] , function (app, $, Tools, Data) {
+	, 'json3'
+] , function (App, $, Tools, Data) {
 	'use strict';
 
 	// Define the main App module
-	var App = {
-		name: document.body.dataset.app
+	App = {
+		name: $('body').data('app')
 		, module: false
 		, data: JSON.parse(Data)
 	};
