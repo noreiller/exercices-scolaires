@@ -1,3 +1,7 @@
+function mountFolder (connect, dir) {
+	return connect.static(require('path').resolve(dir));
+}
+
 module.exports = function(grunt) {
 
 	// set Underscore as a shortcut
@@ -83,9 +87,10 @@ module.exports = function(grunt) {
 		, watch: {
 			js: {
 				files: ['src/js/*.js']
-				, tasks: ['jshint', 'copy:js']
+				, tasks: ['jshint', 'copy:js', 'replace:dev']
 				, options: {
 					spawn: false
+					, livereload: true
 				}
 			}
 			, css: {
@@ -93,6 +98,7 @@ module.exports = function(grunt) {
 				, tasks: ['less']
 				, options: {
 					spawn: false
+					, livereload: false
 				}
 			}
 			, html: {
@@ -100,6 +106,7 @@ module.exports = function(grunt) {
 				, tasks: ['html']
 				, options: {
 					spawn: false
+					, livereload: true
 				}
 			}
 			, data: {
@@ -107,6 +114,42 @@ module.exports = function(grunt) {
 				, tasks: ['copy:data', 'copy:tpl']
 				, options: {
 					spawn: false
+					, livereload: true
+				}
+			}
+		}
+
+		, replace: {
+			dev: {
+				options: {
+					usePrefix: false
+					, variables: {
+						'../../bower_components': '/bower_components'
+					}
+				}
+				, files: [
+					{expand: true, flatten: true, src: ['dist/js/app.js'], dest: 'dist/js/'}
+				]
+			}
+		}
+
+		, connect: {
+			dev: {
+				options: {
+					port: 1337
+					// change this to '0.0.0.0' to access the server from outside
+					, hostname: 'localhost'
+					, middleware: function (connect) {
+						return [
+							require('connect-livereload')()
+							, mountFolder(connect, 'dist')
+							// , mountFolder(connect, 'bower_components')
+							, connect().use(
+								'/bower_components',
+								connect.static('./bower_components')
+							)
+						];
+					}
 				}
 			}
 		}
@@ -120,6 +163,7 @@ module.exports = function(grunt) {
 				header: grunt.file.read('src/partials/header.html')
 				, footer: grunt.file.read('src/partials/footer.html')
 				, works: grunt.file.read('src/partials/works.html')
+				, 'checkbox-checker': grunt.file.read('src/partials/checkbox-checker.html')
 			}
 			, options = { encoding : 'utf8' }
 		;
@@ -185,18 +229,21 @@ module.exports = function(grunt) {
 		});
 	});
 
-	grunt.loadNpmTasks('grunt-contrib-jshint');
-	grunt.loadNpmTasks('grunt-contrib-watch');
 	grunt.loadNpmTasks('grunt-contrib-clean');
+	grunt.loadNpmTasks('grunt-contrib-connect');
 	grunt.loadNpmTasks('grunt-contrib-copy');
+	grunt.loadNpmTasks('grunt-contrib-jshint');
 	grunt.loadNpmTasks('grunt-contrib-less');
-	grunt.loadNpmTasks('grunt-requirejs');
+	grunt.loadNpmTasks('grunt-contrib-watch');
 	grunt.loadNpmTasks('grunt-gh-pages');
+	grunt.loadNpmTasks('grunt-notify');
+	grunt.loadNpmTasks('grunt-requirejs');
+	grunt.loadNpmTasks('grunt-replace');
 
 	grunt.registerTask('copy:assets', ['copy:data', 'copy:tpl', 'copy:js']);
 	grunt.registerTask('build', ['jshint', 'clean', 'less', 'copy:assets', 'requirejs', 'html']);
 
-	grunt.registerTask('dev', ['jshint', 'clean', 'less', 'copy:assets', 'html']);
+	grunt.registerTask('dev', ['jshint', 'clean', 'less', 'copy:assets', 'html', 'replace:dev', 'connect:dev', 'watch']);
 
 	grunt.registerTask('default', ['build']);
 
