@@ -11,34 +11,13 @@ define([
 		$form = $('#' + App.name)
 		, $restartButton = $('.restart', $form)
 		, defaultParameters = {
-			operation: {
-				type: 'string'
-				, value: 'multiplication'
-			}
-			, table: {
-				type: 'number'
-				, value: 0
-			}
-			, quantity: {
-				type: 'number'
-				, value: 5
-			}
-			, delay: {
-				type: 'number'
-				, value: 5
-			}
-			, allowSame: {
-				type: 'boolean'
-				, value: true
-			}
-			, allowReversed: {
-				type: 'boolean'
-				, value: false
-			}
-			, allowDuplicates: {
-				type: 'boolean'
-				, value: false
-			}
+			operation: 'multiplication'
+			, table: Tools.range(1,9)
+			, quantity: 5
+			, delay: 5
+			, allowSame: false
+			, allowReversed: false
+			, allowDuplicates: false
 		}
 		, parameters = {}
 		, operations = []
@@ -64,42 +43,14 @@ define([
 	}
 
 	function newWork () {
-		updateParameters();
+		// update the default parameters with form values
+		parameters = $.extend(defaultParameters, Tools.serializeForm($form[0]));
+
+		// generate the operations
 		operations = Tools.Maths.generateMultipleOperations(parameters);
+
+		// display the slideshow
 		updateSlideshow();
-	}
-
-	function updateParameters () {
-		// reset the parameters
-		parameters = {};
-
-		// update the parameters with form values
-		$.each($form.serializeArray(), function (ind, field) {
-			if (defaultParameters[field.name]) {
-				parameters[field.name] = Tools.format(field.value, defaultParameters[field.name].type);
-			}
-		});
-
-		// update the missing parameters with default ones
-		$.each(defaultParameters, function (ind, param) {
-			if (!parameters[ind]) {
-				parameters[ind] = defaultParameters[ind].value;
-			}
-		});
-
-		// if the table param is set and duplicates are not allowed, ensure
-		// that the max is at least the quantity
-		if (
-			(!parameters.allowDuplicates || !parameters.allowReversed)
-			&& parameters.table > 0
-		) {
-			if (parameters.allowSame) {
-				parameters.max = parameters.quantity;
-			}
-			else {
-				parameters.max = parameters.quantity + 1;
-			}
-		}
 	}
 
 	function updateSlideshow () {

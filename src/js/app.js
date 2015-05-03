@@ -9,6 +9,7 @@ require.config({
 		, 'polyfills': './polyfills'
 		, 'tools': './tools'
 		, 'slideshow': './slideshow'
+		, 'checkbox-checker': './checkbox-checker'
 		, 'maths': './maths'
 	}
 	, shim: {
@@ -27,6 +28,7 @@ define([
 	, 'polyfills'
 	, 'bootstrap'
 	, 'json3'
+	, 'checkbox-checker'
 ] , function (App, $, Tools, Data) {
 	'use strict';
 
