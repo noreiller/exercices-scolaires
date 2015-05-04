@@ -21,7 +21,10 @@ define([
 		var $inputs = $(this).parents('.form-group:first').find('input[type=checkbox]');
 
 		$inputs.each(function (ind, el) {
-			$(el).prop('checked', false);
+			$(el)
+				.prop('checked', false)
+				.trigger('change')
+			;
 		});
 	};
 
@@ -29,7 +32,10 @@ define([
 		var $inputs = $(this).parents('.form-group:first').find('input[type=checkbox]');
 
 		$inputs.each(function (ind, el) {
-			$(el).prop('checked', true);
+			$(el)
+				.prop('checked', true)
+				.trigger('change')
+			;
 		});
 	};
 

@@ -98,7 +98,7 @@ module.exports = function(grunt) {
 				, tasks: ['less']
 				, options: {
 					spawn: false
-					, livereload: false
+					, livereload: true
 				}
 			}
 			, html: {

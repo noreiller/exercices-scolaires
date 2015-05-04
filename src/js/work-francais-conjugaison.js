@@ -3,25 +3,23 @@ define([
 	, 'underscore'
 	, 'jquery'
 	, 'tools'
-	, 'maths'
+	, 'french'
 	, 'slideshow'
 ], function (App, _, $, Tools) {
 	'use strict';
 
-	var displayName = 'mathematiques-multiplication-division';
+	var displayName = 'francais-conjugaison';
 	var $form = $('#' + App.name);
 	var $restartButton = $('.restart', $form);
 	var defaultParameters = {
-		operation: 'multiplication'
-		, table: _.range(1,9)
-		, quantity: 5
-		, delay: 5
-		, allowSame: false
-		, allowReversed: false
-		, allowDuplicates: false
+		tenses: []
+		, quantity: 10
+		, subjects: _.pluck(Tools.French.getData('subjects'), 'key')
+		, verb_groups: []
+		, delay: 15
 	};
 	var parameters = {};
-	var operations = [];
+	var sentences = [];
 
 	$form.on('submit', controllerSubmission);
 	$restartButton.on('click', controllerRestart);
@@ -34,7 +32,7 @@ define([
 	function controllerRestart (event) {
 		event.preventDefault();
 
-		if (operations.length < 1) {
+		if (sentences.length < 1) {
 			newWork();
 		}
 		else {
@@ -46,8 +44,8 @@ define([
 		// update the default parameters with form values
 		parameters = $.extend(defaultParameters, Tools.serializeForm($form[0]));
 
-		// generate the operations
-		operations = Tools.Maths.generateMultipleOperations(parameters);
+		// generate the sentences
+		sentences = Tools.French.generateSubjectVerbSentences(parameters);
 
 		// display the slideshow
 		updateSlideshow();
@@ -57,23 +55,13 @@ define([
 		// reset the slideshow
 		Tools.Slideshow.reset(displayName);
 
-		// add each operation
-		$.each(operations, function (ind, operation) {
-			var
-				$slide = $('<div></div>')
-				, text = ''
-			;
+		// add each sentence
+		$.each(sentences, function (ind, sentence) {
+			var $slide = $('<div></div>');
+			var text = '';
 
-			if (operation.details.operation == '/') {
-				text += operation.details.result;
-			}
-			else {
-				text += operation.details.left;
-			}
-
-			text += operation.details.operation;
-
-			text += operation.details.right;
+			text += ('<p>' + sentence.tense + '</p>');
+			text += ('<p><strong>' + sentence.subject + '</strong> <em>' + sentence.verb + '</em></p>');
 
 			$slide.html(text);
 			$slide.addClass('item');

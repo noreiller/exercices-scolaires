@@ -35,12 +35,30 @@
 
 /* CAROUSEL INTO A FULLSCREEN MODAL */
 .modal-fullscreen .carousel .item {
-	font-size: 100px;
 	line-height: 3em;
 	text-align: center;
 }
-@media (min-width: 768px) {
-	.modal-fullscreen .carousel .item {
-		font-size: 200px;
+
+.modal-fullscreen .carousel[data-name="francais-conjugaison"] {
+	.item {
+		font-size: 50px;
+	}
+
+	@media (min-width: 768px) {
+		.item {
+			font-size: 100px;
+		}
+	}
+}
+
+.modal-fullscreen .carousel[data-name="mathematiques-multiplication-division"] {
+	.item {
+		font-size: 100px;
+	}
+
+	@media (min-width: 768px) {
+		.item {
+			font-size: 200px;
+		}
 	}
 }

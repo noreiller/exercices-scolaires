@@ -1,0 +1,215 @@
+@@include.header
+
+<form role="form" id="francais-conjugaison">
+	<fieldset class="form-group parameters">
+		<legend>Paramètres</legend>
+		<div class="form-group form-group-lg">
+			<div>
+				<label for="tenses">Temps</label>
+				@@include.checkbox-checker
+			</div>
+			<div class="checkbox col-sm-6">
+				<label>
+					<input type="checkbox" name="tenses" id="tenses-present" value="present" />
+					<span>Présent</span>
+				</label>
+			</div>
+			<div class="checkbox col-sm-6">
+				<label>
+					<input type="checkbox" name="tenses" id="tenses-imparfait" value="imparfait" />
+					<span>Imparfait</span>
+				</label>
+			</div>
+			<div class="checkbox col-sm-6">
+				<label>
+					<input type="checkbox" name="tenses" id="tenses-passe_compose" value="passe_compose" />
+					<span>Passé composé</span>
+				</label>
+			</div>
+			<div class="checkbox col-sm-6">
+				<label>
+					<input type="checkbox" name="tenses" id="tenses-passe_simple" value="passe_simple" />
+					<span>Passé simple</span>
+				</label>
+			</div>
+			<div class="checkbox col-sm-6">
+				<label>
+					<input type="checkbox" name="tenses" id="tenses-plus_que_parfait" value="plus_que_parfait" />
+					<span>Plus que parfait</span>
+				</label>
+			</div>
+			<div class="checkbox col-sm-6">
+				<label>
+					<input type="checkbox" name="tenses" id="tenses-present" value="present" />
+					<span>Présent</span>
+				</label>
+			</div>
+			<div class="checkbox col-sm-6">
+				<label>
+					<input type="checkbox" name="tenses" id="tenses-present_de_l_imperatif" value="present_de_l_imperatif" />
+					<span>Présent de l'impératif</span>
+				</label>
+			</div>
+			<div class="checkbox col-sm-6">
+				<label>
+					<input type="checkbox" name="tenses" id="tenses-present_du_conditionnel" value="present_du_conditionnel" />
+					<span>Présent du conditionnel</span>
+				</label>
+			</div>
+		</div>
+		<div class="form-group form-group-lg">
+			<div>
+				<label for="subjects">Sujets</label>
+				@@include.checkbox-checker
+			</div>
+			<div class="checkbox col-sm-6">
+				<label>
+					<input type="checkbox" name="subjects" id="subjects-je" value="je" />
+					<span>Je</span>
+				</label>
+			</div>
+			<div class="checkbox col-sm-6">
+				<label>
+					<input type="checkbox" name="subjects" id="subjects-tu" value="tu" />
+					<span>Tu</span>
+				</label>
+			</div>
+			<div class="checkbox col-sm-6">
+				<label>
+					<input type="checkbox" name="subjects" id="subjects-elle" value="elle" />
+					<span>Elle</span>
+				</label>
+			</div>
+			<div class="checkbox col-sm-6">
+				<label>
+					<input type="checkbox" name="subjects" id="subjects-il" value="il" />
+					<span>Il</span>
+				</label>
+			</div>
+			<div class="checkbox col-sm-6">
+				<label>
+					<input type="checkbox" name="subjects" id="subjects-nous" value="nous" />
+					<span>Nous</span>
+				</label>
+			</div>
+			<div class="checkbox col-sm-6">
+				<label>
+					<input type="checkbox" name="subjects" id="subjects-vous" value="vous" />
+					<span>Vous</span>
+				</label>
+			</div>
+			<div class="checkbox col-sm-6">
+				<label>
+					<input type="checkbox" name="subjects" id="subjects-elles" value="elles" />
+					<span>Elles</span>
+				</label>
+			</div>
+			<div class="checkbox col-sm-6">
+				<label>
+					<input type="checkbox" name="subjects" id="subjects-ils" value="ils" />
+					<span>Ils</span>
+				</label>
+			</div>
+		</div>
+		<div class="form-group">
+			<div>
+				<label for="verb_groups">Groupes de verbe</label>
+				@@include.checkbox-checker
+			</div>
+			<div class="checkbox">
+				<label>
+					<input type="checkbox" name="verb_groups" id="verb_groups-auxiliaires" value="auxiliaires" />
+					<span>Auxiliaires</span>
+				</label>
+			</div>
+			<div class="checkbox" data-ride="sub-checkbox">
+				<label>
+					<input type="checkbox" name="verb_groups" id="verb_groups-premier" value="premier" data-sub-checkbox="master" />
+					<span>1er groupe</span>
+				</label>
+				<div class="form-group">
+					<div class="checkbox">
+						<label>
+							<input type="checkbox" name="verb_groups" id="verb_groups-cer_ger" value="cer_ger" />
+							<span>cer/ger</span>
+						</label>
+					</div>
+					<div class="checkbox">
+						<label>
+							<input type="checkbox" name="verb_groups" id="verb_groups-eler_eter" value="eler_eter" />
+							<span>eler/eter</span>
+						</label>
+					</div>
+					<div class="checkbox">
+						<label>
+							<input type="checkbox" name="verb_groups" id="verb_groups-ier_yer" value="ier_yer" />
+							<span>ier/yer</span>
+						</label>
+					</div>
+				</div>
+			</div>
+			<div class="checkbox">
+				<label>
+					<input type="checkbox" name="verb_groups" id="verb_groups-deuxieme" value="deuxieme" />
+					<span>2e groupe</span>
+				</label>
+			</div>
+			<div class="checkbox" data-ride="sub-checkbox">
+				<label>
+					<input type="checkbox" name="verb_groups" id="verb_groups-troisieme" value="troisieme" />
+					<span>3e groupe</span>
+				</label>
+				<div class="form-group">
+					<div class="checkbox">
+						<label>
+							<input type="checkbox" name="verb_groups" id="verb_groups-aincre" value="aincre" />
+							<span>aincre</span>
+						</label>
+					</div>
+					<div class="checkbox">
+						<label>
+							<input type="checkbox" name="verb_groups" id="verb_groups-aindre_oindre_eindre_oudre" value="aindre_oindre_eindre_oudre" />
+							<span>aindre/oindre/eindre/oudre</span>
+						</label>
+					</div>
+					<div class="checkbox">
+						<label>
+							<input type="checkbox" name="verb_groups" id="verb_groups-aitre" value="aitre" />
+							<span>aître</span>
+						</label>
+					</div>
+					<div class="checkbox">
+						<label>
+							<input type="checkbox" name="verb_groups" id="verb_groups-dre_tre" value="dre_tre" />
+							<span>dre/tre</span>
+						</label>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="form-group">
+			<label for="quantity">Quantités</label>
+			<select name="quantity" id="quantity" class="form-control">
+				<option value="5">5</option>
+				<option value="10" selected="selected">10</option>
+				<option value="15">15</option>
+				<option value="20">20</option>
+			</select>
+		</div>
+		<div class="form-group">
+			<label for="delay">Délai (secondes)</label>
+			<select name="delay" id="delay" class="form-control">
+				<option value="10000">10</option>
+				<option value="15000" selected="selected">15</option>
+				<option value="20000">20</option>
+				<option value="25000">25</option>
+			</select>
+		</div>
+	</fieldset>
+	<fieldset class="form-group buttons">
+		<button type="submit" class="btn btn-success">Valider</button>
+		<button type="button" class="btn btn-primary restart">Recommencer</button>
+	</fieldset>
+</form>
+
+@@include.footer

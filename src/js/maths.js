@@ -1,8 +1,9 @@
 define([
 	'app'
+	, 'underscore'
 	, 'jquery'
 	, 'tools'
-], function (App, $, Tools) {
+], function (App, _, $, Tools) {
 	'use strict';
 
 	var Module = function () {
@@ -90,7 +91,7 @@ define([
 	Module.prototype.generateSingleOperation = function (options) {
 		var defaults = {
 			// the figure table, an array of integers from 1 to 9
-			table: Tools.range(1,9)
+			table: _.range(1,9)
 			// the operation, choose between 'multiplication' and 'division'
 			, operation: 'multiplication'
 			// the minimum figure or number

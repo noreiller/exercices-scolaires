@@ -1,7 +1,8 @@
 require.config({
 	paths: {
 		// DEPENDENCIES
-		'jquery': '../../bower_components/jquery/jquery.min'
+		'underscore': '../../bower_components/underscore/underscore-min'
+		, 'jquery': '../../bower_components/jquery/jquery.min'
 		, 'bootstrap': '../../bower_components/bootstrap/dist/js/bootstrap.min'
 		, 'json3': '../../bower_components/json3/lib/json3.min'
 		, 'text': '../../bower_components/requirejs-text/text'
@@ -10,7 +11,9 @@ require.config({
 		, 'tools': './tools'
 		, 'slideshow': './slideshow'
 		, 'checkbox-checker': './checkbox-checker'
+		, 'sub-checkbox': './sub-checkbox'
 		, 'maths': './maths'
+		, 'french': './french'
 	}
 	, shim: {
 		bootstrap: {
@@ -29,6 +32,7 @@ define([
 	, 'bootstrap'
 	, 'json3'
 	, 'checkbox-checker'
+	, 'sub-checkbox'
 ] , function (App, $, Tools, Data) {
 	'use strict';
 

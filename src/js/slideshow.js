@@ -13,6 +13,10 @@ define([
 		this.initCarousel();
 	};
 
+	Module.prototype.setName = function (name) {
+		this.name = name;
+	};
+
 	Module.prototype.initModal = function () {
 		// set the modal wrapper
 		this.$modal = $(ModalTpl).attr('id', 'slideshow');
@@ -35,6 +39,8 @@ define([
 		this.$carouselInner = $('.carousel-inner', this.carousel);
 		this.$carouselIndex = $('.carousel-index', this.modal);
 		this.$carouselCounter = $('.carousel-count', this.modal);
+
+		this.$carousel.attr('data-name', this.name);
 	};
 
 	Module.prototype.getIndex = function () {
@@ -107,7 +113,11 @@ define([
 		this.update();
 	};
 
-	Module.prototype.reset = function () {
+	Module.prototype.reset = function (name) {
+		if (name) {
+			this.setName(name);
+		}
+
 		// reset the carousel html
 		this.initCarousel();
 

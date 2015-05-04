@@ -16,6 +16,7 @@
 			, "works": [{
 				"name": "francais-conjugaison"
 				, "title": "Conjugaison"
+				, "module": true
 			}]
 		}]
 		, "index": {
