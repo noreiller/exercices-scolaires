@@ -1,8 +1,9 @@
 define([
 	'app'
+	, 'underscore'
 	, 'jquery'
 	, 'tools'
-], function (App, $, Tools) {
+], function (App, _, $, Tools) {
 	'use strict';
 
 	var Module = function () {
@@ -29,12 +30,26 @@ define([
 			// @see also options in this.generateSingleOperation
 		};
 
-		options = $.extend(defaults, options || {});
+		if (typeof options.table === 'number') {
+			options.table = [options.table];
+		}
 
-		var
-			operations = []
-			, tmp = []
-		;
+		options = $.extend({}, defaults, options || {});
+
+		var operations = [];
+		var tmp = [];
+		var max = 9 * options.table.length;
+
+		// Check requested quantity when no duplicates
+		if (!options.allowDuplicates) {
+			if (!options.allowSame) {
+				max -= (options.table.length);
+			}
+
+			if (!options.allowReversed) {
+				max -= (options.table.length * (options.table.length + 1) * 0.5 - options.table.length);
+			}
+		}
 
 		for (var i = 0; i < Number(options.quantity); i++) {
 			var operation = this.generateSingleOperation(options);
@@ -75,10 +90,10 @@ define([
 
 	Module.prototype.generateSingleOperation = function (options) {
 		var defaults = {
-			// the figure table
-			table: 0 // [1-9] or 0 to randomize
-			// the operation
-			, operation: 'multiplication' // [multiplication, division]
+			// the figure table, an array of integers from 1 to 9
+			table: _.range(1,9)
+			// the operation, choose between 'multiplication' and 'division'
+			, operation: 'multiplication'
 			// the minimum figure or number
 			, min: 1
 			// the maximum figure or number
@@ -90,9 +105,9 @@ define([
 		options = $.extend(defaults, options || {});
 
 		var details = {
-			left: options.table > 0
-				? options.table
-				: Tools.random(options.min, options.max)
+			left: options.table.length === 1
+				? options.table[0]
+				: options.table[Tools.random(0, options.table.length - 1)]
 			, right: Tools.random(options.min, options.max)
 			, operation: this.operations[options.operation].label
 		};

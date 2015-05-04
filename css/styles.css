@@ -5929,6 +5929,19 @@ h2.sw-title {
   border-bottom: 1px solid #ccc;
   line-height: 1.5em;
 }
+.form-group {
+  clear: both;
+}
+.form-group-lg {
+  float: left;
+  width: 100%;
+}
+label + .plugin-checkbox-checker {
+  float: right;
+}
+.form-group-lg > .checkbox {
+  margin-top: -5px;
+}
 /* FULLSCREEN MODAL */
 .modal-fullscreen .modal-dialog {
   margin: 0;
@@ -5963,12 +5976,22 @@ h2.sw-title {
 }
 /* CAROUSEL INTO A FULLSCREEN MODAL */
 .modal-fullscreen .carousel .item {
-  font-size: 100px;
   line-height: 3em;
   text-align: center;
 }
+.modal-fullscreen .carousel[data-name="francais-conjugaison"] .item {
+  font-size: 50px;
+}
 @media (min-width: 768px) {
-  .modal-fullscreen .carousel .item {
+  .modal-fullscreen .carousel[data-name="francais-conjugaison"] .item {
+    font-size: 100px;
+  }
+}
+.modal-fullscreen .carousel[data-name="mathematiques-multiplication-division"] .item {
+  font-size: 100px;
+}
+@media (min-width: 768px) {
+  .modal-fullscreen .carousel[data-name="mathematiques-multiplication-division"] .item {
     font-size: 200px;
   }
 }
