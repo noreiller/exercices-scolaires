@@ -24,6 +24,7 @@ require.config({
 
 define([
 	'exports'
+	, 'underscore'
 	, 'jquery'
 	, 'tools'
 	, 'text!../data/data.json'
