@@ -34,7 +34,7 @@ define([
 	, 'json3'
 	, 'checkbox-checker'
 	, 'sub-checkbox'
-] , function (App, $, Tools, Data) {
+] , function (App, _, $, Tools, Data) {
 	'use strict';
 
 	// Define the main App module
