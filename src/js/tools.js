@@ -26,7 +26,7 @@ define([
 								values[formElement[i].name] = value;
 							}
 							else {
-								if (typeof values[formElement[i].name].length === 'undefined') {
+								if (typeof values[formElement[i].name] !== 'object') {
 									values[formElement[i].name] = [values[formElement[i].name]];
 								}
 
