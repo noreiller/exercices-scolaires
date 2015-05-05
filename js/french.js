@@ -39,11 +39,14 @@ define([
 
 		, tenses: [
 			{
+				key: 'present'
+				, name: 'Présent'
+			}, {
+				key: 'futur'
+				, name: 'Futur'
+			}, {
 				key: 'imparfait'
 				, name: 'Imparfait'
-			}, {
-				key: 'passe_compose'
-				, name: 'Passé composé'
 			}, {
 				key: 'passe_simple'
 				, name: 'Passé simple'
@@ -51,8 +54,11 @@ define([
 				key: 'plus_que_parfait'
 				, name: 'Plus que parfait'
 			}, {
-				key: 'present'
-				, name: 'Présent'
+				key: 'passe_compose'
+				, name: 'Passé composé'
+			}, {
+				key: 'futur_anterieur'
+				, name: 'Futur antérieur'
 			}, {
 				key: 'present_de_l_imperatif'
 				, name: 'Présent de l\'impératif'

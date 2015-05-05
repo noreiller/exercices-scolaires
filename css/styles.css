@@ -5982,6 +5982,12 @@ label + .plugin-checkbox-checker {
 .modal-fullscreen .carousel[data-name="francais-conjugaison"] .item {
   font-size: 50px;
 }
+.modal-fullscreen .carousel[data-name="francais-conjugaison"] .item .tense {
+  color: red;
+}
+.modal-fullscreen .carousel[data-name="francais-conjugaison"] .item .verb {
+  font-weight: bold;
+}
 @media (min-width: 768px) {
   .modal-fullscreen .carousel[data-name="francais-conjugaison"] .item {
     font-size: 100px;

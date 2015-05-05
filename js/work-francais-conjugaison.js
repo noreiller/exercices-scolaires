@@ -60,8 +60,8 @@ define([
 			var $slide = $('<div></div>');
 			var text = '';
 
-			text += ('<p>' + sentence.tense + '</p>');
-			text += ('<p><strong>' + sentence.subject + '</strong> <em>' + sentence.verb + '</em></p>');
+			text += ('<p class="tense">' + sentence.tense + '</p>');
+			text += ('<p><span class="subject">' + sentence.subject + '</span> <span class="verb">' + sentence.verb + '</span></p>');
 
 			$slide.html(text);
 			$slide.addClass('item');
