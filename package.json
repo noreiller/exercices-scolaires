@@ -2,7 +2,7 @@
   "name": "school-work",
   "author": "Aurélien MANCA (https://www.amanca.fr/)",
   "license": "ISC",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "dependencies": {
     "jquery": "1.12.1",
     "json3": "3.3.0",
