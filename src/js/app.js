@@ -1,11 +1,11 @@
 require.config({
 	paths: {
 		// DEPENDENCIES
-		'underscore': '../../bower_components/underscore/underscore-min'
-		, 'jquery': '../../bower_components/jquery/jquery.min'
-		, 'bootstrap': '../../bower_components/bootstrap/dist/js/bootstrap.min'
-		, 'json3': '../../bower_components/json3/lib/json3.min'
-		, 'text': '../../bower_components/requirejs-text/text'
+		'underscore': '../../node_modules/underscore/underscore-min'
+		, 'jquery': '../../node_modules/jquery/dist/jquery.min'
+		, 'bootstrap': '../../node_modules/bootstrap/dist/js/bootstrap.min'
+		, 'json3': '../../node_modules/json3/lib/json3'
+		, 'text': '../../node_modules/requirejs-text/text'
 		// LIBS
 		, 'polyfills': './polyfills'
 		, 'tools': './tools'

@@ -28,7 +28,7 @@ module.exports = function(grunt) {
 		}
 
 		, clean: {
-			dist: ['dist']
+			dist: ['./dist']
 		}
 
 		, copy: {
@@ -45,7 +45,7 @@ module.exports = function(grunt) {
 			, js: {
 				files: [
 					{ expand: true, flatten: true, src: ['src/js/*.js'], dest: 'dist/js' }
-					, { expand: true, flatten: true, src: ['bower_components/requirejs/require.js'], dest: 'dist/js' }
+					, { expand: true, flatten: true, src: ['node_modules/requirejs/require.js'], dest: 'dist/js' }
 				]
 			}
 		}
@@ -58,7 +58,7 @@ module.exports = function(grunt) {
 				}
 				, files: {
 					"dist/css/styles.css": [
-						"bower_components/bootstrap/dist/css/bootstrap.min.css"
+						"node_modules/bootstrap/dist/css/bootstrap.min.css"
 						, "src/less/main.less"
 					]
 				}
@@ -124,7 +124,7 @@ module.exports = function(grunt) {
 				options: {
 					usePrefix: false
 					, variables: {
-						'../../bower_components': '/bower_components'
+						'../../node_modules': '/node_modules'
 					}
 				}
 				, files: [
@@ -143,10 +143,10 @@ module.exports = function(grunt) {
 						return [
 							require('connect-livereload')()
 							, mountFolder(connect, 'dist')
-							// , mountFolder(connect, 'bower_components')
+							// , mountFolder(connect, 'node_modules')
 							, connect().use(
-								'/bower_components',
-								connect.static('./bower_components')
+								'/node_modules',
+								connect.static('./node_modules')
 							)
 						];
 					}
